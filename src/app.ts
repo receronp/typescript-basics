@@ -1,7 +1,26 @@
-const button = document.querySelector("button")!;
+class Department {
+  private employees: string[] = [];
 
-function clickHandler(message: string) {
-  console.log("Clicked: " + message);
+  constructor(private readonly id: string, public name: string) {}
+
+  describe(this: Department) {
+    console.log(`Department: (${this.id}): ${this.name}`);
+  }
+
+  addEmployee(employee: string) {
+    this.employees.push(employee);
+  }
+
+  printEmployeeInformation() {
+    console.log(this.employees.length);
+    console.log(this.employees);
+  }
 }
 
-button.addEventListener("click", clickHandler.bind(null, "You're welcome"));
+const accounting = new Department("d1", "Accounting");
+
+accounting.addEmployee("Max");
+accounting.addEmployee("Anna");
+
+accounting.describe();
+accounting.printEmployeeInformation();
