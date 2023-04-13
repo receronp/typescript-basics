@@ -1,7 +1,22 @@
-const button = document.querySelector("button")!;
+type Admin = {
+  name: string;
+  privileges: string[];
+};
 
-function clickHandler(message: string) {
-  console.log("Clicked: " + message);
-}
+type Employee = {
+  name: string;
+  startDate: Date;
+};
 
-button.addEventListener("click", clickHandler.bind(null, "You're welcome"));
+type ElevatedEmployee = Admin & Employee;
+
+const e1: ElevatedEmployee = {
+  name: "Max",
+  privileges: ["create-server"],
+  startDate: new Date(),
+};
+
+type Combinable = string | number;
+type Numeric = number | boolean;
+
+type Universal = Combinable & Numeric;
