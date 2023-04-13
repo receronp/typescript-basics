@@ -1,7 +1,11 @@
-const button = document.querySelector("button")!;
+const names: Array<string> = [];
 
-function clickHandler(message: string) {
-  console.log("Clicked: " + message);
-}
+const promise = new Promise<number>((resolve) => {
+  setTimeout(() => {
+    () => resolve(10);
+  }, 2000);
+});
 
-button.addEventListener("click", clickHandler.bind(null, "You're welcome"));
+promise.then(() => {
+  // data.split(" ");
+});
