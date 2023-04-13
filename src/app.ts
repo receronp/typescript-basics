@@ -1,7 +1,18 @@
-const button = document.querySelector("button")!;
+interface Person {
+  name: string;
+  age: number;
 
-function clickHandler(message: string) {
-  console.log("Clicked: " + message);
+  greet(phrase: string): void;
 }
 
-button.addEventListener("click", clickHandler.bind(null, "You're welcome"));
+let user1: Person;
+
+user1 = {
+  name: "Max",
+  age: 30,
+  greet(phrase: string) {
+    console.log(phrase + " " + this.name);
+  },
+};
+
+user1.greet("Hi there - I am");
